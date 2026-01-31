@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Issue Bot - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🤖 GitHub Issue Bot</h1>
+      <p>Manage your repository settings</p>
+    </header>
+
+    <main>
+      <section class="repos-section">
+        <h2>Your Repositories</h2>
+        <div id="repos-list" class="repos-list">
+          <div class="loading">Loading repositories...</div>
+        </div>
+      </section>
+
+      <section class="activity-section">
+        <h2>Recent Activity</h2>
+        <div id="activity-log" class="activity-log">
+          <div class="loading">Loading activity...</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

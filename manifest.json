@@ -1,0 +1,21 @@
+{
+  "name": "GitHub Issue Bot",
+  "url": "https://github.com/FairArena/github-issue-bot",
+  "hook_attributes": {
+    "url": "https://[YOUR-APPWRITE-ENDPOINT]/v1/functions/github-webhook/executions"
+  },
+  "redirect_url": "https://[YOUR-FRONTEND-URL]/callback.html",
+  "description": "AI-powered issue summarization and chatbot for your repositories",
+  "public": true,
+  "default_permissions": {
+    "issues": "write",
+    "contents": "read",
+    "metadata": "read"
+  },
+  "default_events": [
+    "issues",
+    "issue_comment",
+    "installation",
+    "installation_repositories"
+  ]
+}

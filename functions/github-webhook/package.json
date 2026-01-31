@@ -1,0 +1,13 @@
+{
+  "name": "github-webhook",
+  "version": "1.0.0",
+  "description": "GitHub webhook handler for Issue Bot",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "node-appwrite": "^11.0.0"
+  }
+}

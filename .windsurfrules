@@ -1,0 +1,57 @@
+# [Project Name] - Windsurf AI Context
+
+## Project Overview
+[Brief description of your project]
+**Live:** [URL]
+**API:** [API URL]
+**Author:** [Your Name]
+
+## Stack
+
+**Frontend:** React 19 + TypeScript + Vite + TailwindCSS
+**Backend:** Node.js + Express + Prisma + PostgreSQL
+**Cache:** Redis
+**Jobs:** [Background Job System]
+**Auth:** [Auth Provider]
+
+## Architecture Highlights
+- **Prisma ORM:** [Why you chose it]
+- **Architecture:** [Key architectural decisions]
+
+## Code Standards
+
+### TypeScript
+```typescript
+// ✅ Good: Explicit types
+interface UserProfile {
+  id: string;
+  name: string;
+}
+
+// ❌ Bad: Using any
+function getUser(id: any): any { ... }
+```
+
+### React Components
+- Use Functional Components
+- Use strict TypeScript props
+
+## Project Structure
+```
+.
+├── Backend/
+├── Frontend/
+└── docker-compose.yml
+```
+
+## Environment Variables
+**Backend:**
+```
+DATABASE_URL=
+REDIS_URL=
+API_KEY=
+```
+**Frontend:**
+```
+VITE_API_BASE_URL=
+```

@@ -1,0 +1,71 @@
+# [Project Name] - Cursor AI Context
+
+## Project Overview
+[Brief description of your project]
+**Live URL:** [Your Live URL]
+**Author:** [Your Name]
+**License:** [License Type]
+
+## Tech Stack
+
+### Frontend
+- **Framework:** React 19 + TypeScript
+- **Build Tool:** Vite
+- **Styling:** TailwindCSS 4
+- **State Management:** [e.g. React Query, Zustand]
+- **Routing:** React Router v7
+
+### Backend
+- **Runtime:** Node.js
+- **Framework:** Express 5
+- **ORM:** Prisma
+- **Database:** PostgreSQL
+- **Cache:** Redis
+
+### Infrastructure
+- **Container:** Docker + Docker Compose
+- **Cloud:** [Your Cloud Provider]
+
+## Project Structure
+```
+.
+├── Backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── services/
+│   │   ├── routes/
+│   │   └── index.ts
+├── Frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── services/
+└── docker-compose.yml
+```
+
+## Database Schema (Prisma)
+[Highlight key models and relationships]
+
+## Coding Guidelines
+
+### TypeScript
+- **Strict mode enabled**
+- Use `interface` for object shapes
+- Avoid `any` - use `unknown` if necessary
+- Use Zod for runtime validation
+
+### React (Frontend)
+- Functional components with Hooks
+- TypeScript props interfaces
+- Composition over inheritance
+
+### Express (Backend)
+- Async/await pattern
+- Controller → Service → Repository pattern
+- Zod validation for all inputs
+
+## Important Rules
+1. **Never commit secrets**
+2. **Validate all inputs** server-side
+3. **Use transactions** for multi-table writes
+4. **Log errors** with context

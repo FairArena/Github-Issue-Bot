@@ -1,0 +1,328 @@
+{
+    "projectId": "69735edc00127d2033d8",
+    "projectName": "FairArena",
+    "functions": [
+        {
+            "$id": "github-webhook",
+            "name": "GitHub Webhook Handler",
+            "runtime": "node-22",
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "src/main.js",
+            "commands": "npm install",
+            "path": "functions/github-webhook",
+            "vars": [
+                {
+                    "key": "GITHUB_WEBHOOK_SECRET",
+                    "value": ""
+                },
+                {
+                    "key": "APPWRITE_ENDPOINT",
+                    "value": ""
+                },
+                {
+                    "key": "APPWRITE_PROJECT_ID",
+                    "value": ""
+                },
+                {
+                    "key": "APPWRITE_API_KEY",
+                    "value": ""
+                },
+                {
+                    "key": "AI_PROCESSOR_FUNCTION_ID",
+                    "value": ""
+                }
+            ],
+            "scopes": [
+                "databases.read",
+                "databases.write",
+                "policies.read",
+                "policies.write",
+                "archives.read",
+                "archives.write",
+                "restorations.read",
+                "restorations.write",
+                "tables.read",
+                "collections.read",
+                "tables.write",
+                "collections.write",
+                "columns.read",
+                "attributes.read",
+                "columns.write",
+                "attributes.write",
+                "indexes.read",
+                "indexes.write",
+                "rows.read",
+                "documents.read",
+                "rows.write",
+                "documents.write"
+            ],
+            "specification": "s-4vcpu-4gb"
+        },
+        {
+            "$id": "ai-processor",
+            "name": "AI Processor",
+            "runtime": "node-18.0",
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 300,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "src/main.js",
+            "commands": "npm install",
+            "path": "functions/ai-processor",
+            "vars": [
+                {
+                    "key": "OPENROUTER_API_KEY",
+                    "value": ""
+                },
+                {
+                    "key": "GEMINI_API_KEY",
+                    "value": ""
+                },
+                {
+                    "key": "PINECONE_API_KEY",
+                    "value": ""
+                },
+                {
+                    "key": "PINECONE_INDEX",
+                    "value": "github-repos"
+                },
+                {
+                    "key": "GITHUB_APP_ID",
+                    "value": ""
+                },
+                {
+                    "key": "GITHUB_PRIVATE_KEY",
+                    "value": ""
+                },
+                {
+                    "key": "APPWRITE_ENDPOINT",
+                    "value": ""
+                },
+                {
+                    "key": "APPWRITE_PROJECT_ID",
+                    "value": ""
+                },
+                {
+                    "key": "APPWRITE_API_KEY",
+                    "value": ""
+                }
+            ],
+            "scopes": [
+                "databases.read",
+                "databases.write",
+                "policies.read",
+                "policies.write",
+                "archives.read",
+                "archives.write",
+                "restorations.read",
+                "restorations.write",
+                "tables.read",
+                "collections.read",
+                "tables.write",
+                "collections.write",
+                "columns.read",
+                "attributes.read",
+                "columns.write",
+                "attributes.write",
+                "indexes.read",
+                "indexes.write",
+                "rows.read",
+                "documents.read",
+                "rows.write",
+                "documents.write"
+            ],
+            "specification": "s-4vcpu-4gb"
+        }
+    ],
+    "databases": [
+        {
+            "$id": "main",
+            "name": "Main Database",
+            "enabled": true,
+            "collections": [
+                {
+                    "$id": "installations",
+                    "name": "Installations",
+                    "enabled": true,
+                    "documentSecurity": false,
+                    "attributes": [
+                        {
+                            "key": "installation_id",
+                            "type": "string",
+                            "size": 255,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "account_login",
+                            "type": "string",
+                            "size": 255,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "account_type",
+                            "type": "string",
+                            "size": 50,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "repositories",
+                            "type": "string",
+                            "size": 255,
+                            "required": false,
+                            "array": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "key": "installation_id_unique",
+                            "type": "unique",
+                            "attributes": [
+                                "installation_id"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$id": "repositories",
+                    "name": "Repositories",
+                    "enabled": true,
+                    "documentSecurity": false,
+                    "attributes": [
+                        {
+                            "key": "repo_id",
+                            "type": "string",
+                            "size": 255,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "installation_id",
+                            "type": "string",
+                            "size": 255,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "full_name",
+                            "type": "string",
+                            "size": 255,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "auto_summarize",
+                            "type": "boolean",
+                            "required": true,
+                            "array": false,
+                            "default": true
+                        },
+                        {
+                            "key": "chatbot_enabled",
+                            "type": "boolean",
+                            "required": true,
+                            "array": false,
+                            "default": true
+                        },
+                        {
+                            "key": "label_quality",
+                            "type": "boolean",
+                            "required": true,
+                            "array": false,
+                            "default": false
+                        },
+                        {
+                            "key": "pinecone_namespace",
+                            "type": "string",
+                            "size": 255,
+                            "required": false,
+                            "array": false
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "key": "repo_id_unique",
+                            "type": "unique",
+                            "attributes": [
+                                "repo_id"
+                            ]
+                        },
+                        {
+                            "key": "installation_id_idx",
+                            "type": "key",
+                            "attributes": [
+                                "installation_id"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$id": "issue_messages",
+                    "name": "Issue Messages",
+                    "enabled": true,
+                    "documentSecurity": false,
+                    "attributes": [
+                        {
+                            "key": "repo_id",
+                            "type": "string",
+                            "size": 255,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "issue_number",
+                            "type": "integer",
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "role",
+                            "type": "string",
+                            "size": 50,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "content",
+                            "type": "string",
+                            "size": 10000,
+                            "required": true,
+                            "array": false
+                        },
+                        {
+                            "key": "github_comment_id",
+                            "type": "string",
+                            "size": 255,
+                            "required": false,
+                            "array": false
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "key": "repo_issue_idx",
+                            "type": "key",
+                            "attributes": [
+                                "repo_id",
+                                "issue_number"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "name": "GitHub Issue Bot"
+}
